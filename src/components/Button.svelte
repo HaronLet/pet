@@ -2,29 +2,54 @@
 	export let name = "";
   export let img = "";
   export let alt = "";
+  export let isActive = true;
 </script>
 
-<button>
+{#if isActive}
+  <button on:click>
+    {#if img !== ""}
+      <img src="{img}" alt="{alt}">
+    {/if}  
+
+    {#if name !== ""}
+      <span>{name}</span>
+    {/if}  
+  </button>
+{:else}
+  <button disabled>
   {#if img !== ""}
     <img src="{img}" alt="{alt}">
   {/if}  
 
   {#if name !== ""}
-    {name}
+    <span>{name}</span>
   {/if}  
-</button>
+  </button>
+{/if}
+
 
 <style>
   button {
     display: flex;
     align-items: center;
+    /* width: 100%; */
+    min-width: calc(1em + 12px);
     padding: 5px;
     margin: 5px;
+    text-align: center;
+    line-height: 1;
   }
 
   img {
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+  }
+  
+  img + span {
+    margin-left: 5px;
+  }
+
+  span {
+    width: 100%;
   }
 </style>
