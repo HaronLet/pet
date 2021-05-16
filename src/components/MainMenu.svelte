@@ -1,57 +1,110 @@
 <script>
-  import App from '../App.svelte';
+  import tabConfig from "../data/tabConfig";
+  import groupButtonConfig from "../data/groupButtonConfig";
+  import buttonConfig from "../data/buttonConfig";
   import Button from './Button.svelte';
-  import Fieldset from './Fieldset.svelte';
 
-  const papka = {
-    //name: "Папка",
-    img: "https://img.icons8.com/metro/344/add-folder.png",
-    alt: "Иконка папки",
-    isActive: true
-  };
-  const lsr = {
-    name: "Локальная смета",
-    img: "https://img.icons8.com/metro/344/add-folder.png",
-    alt: "Иконка папки"
-  };
-  const ps = {
-    name: "Проектная смета",
-    img: "https://img.icons8.com/metro/344/add-folder.png",
-    alt: "Иконка папки"
-  };
-  const ssr = {
-    name: "Сводный сметный расчёт",
-    img: "https://img.icons8.com/metro/344/add-folder.png",
-    alt: "Иконка папки",
-    isActive: false
-  };
-
-  function  handlClick() {
-    console.log("Click")
-  };
-  function  handlClick2() {
-    console.log("Click2")
-  };
 </script>
 
-<div class="fieldset">
-  <Button {...papka}/>
-  <Button {...lsr}/>
-  <Button {...ps}/>
-  <Button {...ssr}/>
-  <Button name={"+"}/>
-</div>
-<div class="fieldset">
-  <Button {...papka}/>
-  <Button {...lsr}/>
-  <Button {...ps}/>
-  <Button {...ssr} on:click={handlClick2}/>
-  <Button name={"+"} on:click={handlClick}/>
+<div class="menu">
+  <ul class="tabs-name__list">
+    {#each tabConfig as tab, i}
+    <li class="tabs-name__item" data-id="{i}">{tab.name}</li>
+    {/each}
+  </ul>
+
+  <ul class="tabs-contant__list">
+    {#each tabConfig as tab, i}
+      <li class="tabs-contant__item" data-id="{i}">
+        <ul class="button-group__list">
+          {#each tab.groupIdArray as group}
+            <li class="button-group__item">
+              <div class="button-group__body">
+                {#each groupButtonConfig[group].buttonIdArray as btn}
+                  <Button {...buttonConfig[btn]}/>
+                {/each}
+                </div>
+              <div class="button-group__title">{groupButtonConfig[group].name}</div>
+            </li>
+          {/each}
+        </ul>
+      </li>
+    {/each}
+  </ul>
 </div>
 
 <style>
-  .fieldset {
-    width: 200px;
-    border: 1px solid #000;
+  /*-------------------- base --------------------*/
+  .menu,
+  .menu * {
+    box-sizing: border-box;
   }
+  
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul > li {
+    list-style: none;
+  }
+  
+  /*--------------------  --------------------*/
+  .tabs-name__list {
+    display: flex;
+    background: #fac;
+  }
+
+  .tabs-name__item {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .tabs-name__item:hover {
+    background: rgb(230, 110, 158);
+  }
+  
+  .tabs-contant__list {
+    display: flex;
+    border: 1px solid #555;
+  }
+  
+  .tabs-contant__item {
+    display: flex;
+    padding: 5px;
+  }
+  
+  .button-group__list {
+    display: flex;
+  }
+
+  .button-group__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-group__item + .button-group__item {
+    border-left: 1px solid #aaa;
+  }
+
+  .button-group__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-group__title {
+    text-align: center;
+  }
+  
+/*-------------------- active --------------------*/
+/*   .active {
+    display: initial;
+  }
+  
+  .inactive {
+    display: none;
+  } */
+
 </style>
+

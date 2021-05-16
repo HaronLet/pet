@@ -1,14 +1,13 @@
 <script>
 	export let name = "";
   export let img = "";
-  export let alt = "";
   export let isActive = true;
 </script>
 
 {#if isActive}
   <button on:click>
     {#if img !== ""}
-      <img src="{img}" alt="{alt}">
+      <img src="{img}" alt="Иконка">
     {/if}  
 
     {#if name !== ""}
@@ -18,7 +17,7 @@
 {:else}
   <button disabled>
   {#if img !== ""}
-    <img src="{img}" alt="{alt}">
+    <img src="{img}" alt="Иконка">
   {/if}  
 
   {#if name !== ""}
@@ -36,7 +35,7 @@
     min-width: calc(1em + 12px);
     padding: 5px;
     margin: 5px;
-    text-align: center;
+    text-align: left;
     line-height: 1;
   }
 
