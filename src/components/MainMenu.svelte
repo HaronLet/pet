@@ -1,27 +1,44 @@
 <script>
-  import tabConfig from "../data/tabConfig";
-  import groupButtonConfig from "../data/groupButtonConfig";
-  import buttonConfig from "../data/buttonConfig";
   import Button from './Button.svelte';
+  import { onMount } from 'svelte';
+
+  let tabConfig = [];
+  let groupButtonConfig = [];
+  let buttonConfig = [];
+
+  onMount(async () => {
+    const buttonConfigRes = await fetch('http://localhost:5000/data/buttonConfig.json');
+    buttonConfig = await buttonConfigRes.json();
+    
+    const groupButtonConfigRes = await fetch('http://localhost:5000/data/groupButtonConfig.json');
+    groupButtonConfig = await groupButtonConfigRes.json();
+
+    const tabConfigRes = await fetch('http://localhost:5000/data/tabConfig.json');
+    tabConfig = await tabConfigRes.json();
+  });
+  
+  function handleClick(event){
+    console.log(event.detail.text);
+  };
 
 </script>
 
 <div class="menu">
   <ul class="tabs-name__list">
-    {#each tabConfig as tab, i}
-    <li class="tabs-name__item" data-id="{i}">{tab.name}</li>
+    {#each tabConfig as tab}
+    <li class="tabs-name__item">{tab.name}</li>
     {/each}
   </ul>
 
   <ul class="tabs-contant__list">
-    {#each tabConfig as tab, i}
-      <li class="tabs-contant__item" data-id="{i}">
+    {#each tabConfig as tab}
+      <li class="tabs-contant__item">
         <ul class="button-group__list">
           {#each tab.groupIdArray as group}
             <li class="button-group__item">
               <div class="button-group__body">
                 {#each groupButtonConfig[group].buttonIdArray as btn}
-                  <Button {...buttonConfig[btn]}/>
+                  <Button {...buttonConfig[btn]} on:buttonClick={handleClick}/>
                 {/each}
                 </div>
               <div class="button-group__title">{groupButtonConfig[group].name}</div>
@@ -82,6 +99,7 @@
   .button-group__item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .button-group__item + .button-group__item {

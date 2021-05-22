@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Главная",
+    "groupIdArray": ["0", "1"]
+  },
+  {
+    "name": "База",
+    "groupIdArray": ["2", "3"]
+  },
+  {
+    "name": "Документ",
+    "groupIdArray": ["2", "3"]
+  }
+]
