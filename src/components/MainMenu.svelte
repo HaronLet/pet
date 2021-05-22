@@ -17,28 +17,37 @@
     tabConfig = await tabConfigRes.json();
   });
   
-  function handleClick(event){
+  function buttonClick(event){
     console.log(event.detail.text);
   };
+
+  let isActive = 0;
 
 </script>
 
 <div class="menu">
   <ul class="tabs-name__list">
-    {#each tabConfig as tab}
-    <li class="tabs-name__item">{tab.name}</li>
+    {#each tabConfig as tab, i}
+      <li 
+        class:active={isActive === i}
+        class="tabs-name__item"
+        on:click={() => isActive = i}
+      >{tab.name}</li>
     {/each}
   </ul>
 
   <ul class="tabs-contant__list">
-    {#each tabConfig as tab}
-      <li class="tabs-contant__item">
+    {#each tabConfig as tab, i}
+      <li 
+        class:inactive={isActive !== i} 
+        class="tabs-contant__item"
+      >
         <ul class="button-group__list">
           {#each tab.groupIdArray as group}
             <li class="button-group__item">
               <div class="button-group__body">
                 {#each groupButtonConfig[group].buttonIdArray as btn}
-                  <Button {...buttonConfig[btn]} on:buttonClick={handleClick}/>
+                  <Button {...buttonConfig[btn]} on:buttonClick={buttonClick}/>
                 {/each}
                 </div>
               <div class="button-group__title">{groupButtonConfig[group].name}</div>
@@ -118,11 +127,11 @@
 /*-------------------- active --------------------*/
 /*   .active {
     display: initial;
-  }
+  } */
   
   .inactive {
     display: none;
-  } */
+  }
 
 </style>
 

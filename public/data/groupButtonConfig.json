@@ -8,6 +8,14 @@
     "buttonIdArray": ["2", "3"]
   },
   {
+    "name": "Поиск",
+    "buttonIdArray": ["4", "5"]
+  },
+  {
+    "name": "База",
+    "buttonIdArray": ["6", "7"]
+  },
+  {
     "name": "Вставка",
     "buttonIdArray": ["4", "5"]
   },
