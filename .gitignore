@@ -1,5 +1,5 @@
 /node_modules/
-/public/build/*.map
+/public/build/
 
 .xlsx
 .DS_Store
