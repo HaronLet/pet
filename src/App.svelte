@@ -1,5 +1,17 @@
 <script>
   import MainMenu from './components/MainMenu.svelte';
+  import Navigation from './components/Navigation.svelte';
+  import { onMount } from 'svelte';
+
+  let books = [];
+  let FERmp = {};
+
+  onMount(async () => {
+    const FERmpres = await fetch('http://localhost:5000/data/FERmp.json');
+    FERmp = await FERmpres.json();
+    books = FERmp.ResourcesDirectory.ResourceCategory.Section;
+  });
+
 </script>
 
 <div class="wrapper">
@@ -8,12 +20,12 @@
   </header>
   
   <div class="content">
-<!--     <aside class="aside">
-      
-    </aside> -->
+    <aside class="aside">
+      <Navigation/>
+    </aside>
 
     <main class="main">
-      <table>
+      <!-- <table>
         <tr>
           <th rowspan="2">№ п/п</th>
           <th rowspan="2">Обоснование</th>
@@ -59,8 +71,37 @@
           <td>10</td>
           <td>11</td>
           <td>12</td>
-      </tr>
-      </table>
+        </tr>
+      </table> -->
+      <ul>
+        {#each books as book}
+          <li>
+            <h2>{book.Type} {book.Code} {book.Name}</h2>
+            <ul>
+              {#each book.Section as part}
+                <li>
+                  <span>{part.Type} {part.Code} {part.Name}</span>
+                  <ul>
+<!--                     {#each part.Section as table}
+                      <li>
+                        <span>{table.Type} {table.Code} {table.Name}</span>
+                        <ul>
+                          {#each table.NameGroup as work}
+                            <li>
+                              <span>{work.BeginName}</span>
+                            </li>
+                          {/each}
+                        </ul>
+                      </li>
+                    {/each} -->
+                  </ul>
+                </li>
+              {/each}
+            </ul>
+          </li>
+        {/each}
+      </ul>
+
     </main>
   </div>
   <footer class="footer">
@@ -89,15 +130,14 @@
     height: 100%;
   } 
   
-/*   .aside {
-    width: 10%;
-    height: 100%;
-    background: rgb(228, 138, 78);
-  } */
+  .aside {
+    width: 30%;
+    height: 85%;
+  }
 
   .main {
     width: 100%;
-    height: 100%;
+    height: 85%;
     background: #fca;
     overflow: scroll;
   }
@@ -111,5 +151,14 @@
     border-collapse: collapse;
     border: 1px solid #000;
 /*    color: red; */
+  }
+
+  ul > li {
+    padding-left: 20px;
+  }
+
+  ul {
+    padding-top: 10px;
+    margin-bottom: 10px;
   }
 </style>

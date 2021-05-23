@@ -2,19 +2,18 @@
   import Button from './Button.svelte';
   import { onMount } from 'svelte';
 
-  let tabConfig = [];
-  let groupButtonConfig = [];
   let buttonConfig = [];
+  let mainMenuConfig = {};
+  let tabs = [];
+
 
   onMount(async () => {
     const buttonConfigRes = await fetch('http://localhost:5000/data/buttonConfig.json');
     buttonConfig = await buttonConfigRes.json();
     
-    const groupButtonConfigRes = await fetch('http://localhost:5000/data/groupButtonConfig.json');
-    groupButtonConfig = await groupButtonConfigRes.json();
-
-    const tabConfigRes = await fetch('http://localhost:5000/data/tabConfig.json');
-    tabConfig = await tabConfigRes.json();
+    const mainMenuConfigRes = await fetch('http://localhost:5000/data/mainMenuConfig.json');
+    mainMenuConfig = await mainMenuConfigRes.json();
+    tabs = await mainMenuConfig.tabs;
   });
   
   function buttonClick(event){
@@ -27,7 +26,7 @@
 
 <div class="menu">
   <ul class="tabs-name__list">
-    {#each tabConfig as tab, i}
+    {#each tabs as tab, i}
       <li 
         class:active={isActive === i}
         class="tabs-name__item"
@@ -37,20 +36,20 @@
   </ul>
 
   <ul class="tabs-contant__list">
-    {#each tabConfig as tab, i}
+    {#each tabs as tab, i}
       <li 
         class:inactive={isActive !== i} 
         class="tabs-contant__item"
       >
         <ul class="button-group__list">
-          {#each tab.groupIdArray as group}
+          {#each tab.group as group}
             <li class="button-group__item">
               <div class="button-group__body">
-                {#each groupButtonConfig[group].buttonIdArray as btn}
-                  <Button {...buttonConfig[btn]} on:buttonClick={buttonClick}/>
+                {#each group.buttons as button}
+                  <Button {...buttonConfig[button]} on:buttonClick={buttonClick}/>
                 {/each}
                 </div>
-              <div class="button-group__title">{groupButtonConfig[group].name}</div>
+              <div class="button-group__title">{group.name}</div>
             </li>
           {/each}
         </ul>
@@ -60,22 +59,6 @@
 </div>
 
 <style>
-  /*-------------------- base --------------------*/
-  .menu,
-  .menu * {
-    box-sizing: border-box;
-  }
-  
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul > li {
-    list-style: none;
-  }
-  
   /*--------------------  --------------------*/
   .tabs-name__list {
     display: flex;
@@ -125,10 +108,10 @@
   }
   
 /*-------------------- active --------------------*/
-/*   .active {
-    display: initial;
-  } */
-  
+  .active {
+    background: #56e462;
+  }
+
   .inactive {
     display: none;
   }
