@@ -1,26 +1,26 @@
 <script>
   import { createEventDispatcher } from 'svelte';
 
-	export let name = "";
-  export let img = "";
-  export let id = "";
+  export let type = "";
+	export let title = "";
+  export let iconUrl = "";
   export let disabled = false;
 
   const dispatch = createEventDispatcher();
 
   function buttonClick() {
     dispatch('buttonClick', {
-      text: id
+      text: type
     });
   }
 </script>
 
 <button {disabled} on:click={buttonClick}>
-  {#if img !== ""}
-    <img src="{img}" alt="Иконка">
+  {#if iconUrl !== ""}
+    <img src="{iconUrl}" alt="Иконка">
   {/if}  
 
-  <span>{name !== "" ? name : ""}</span>
+  <span>{title !== "" ? title : ""}</span>
 </button>
 
 <style>
@@ -43,6 +43,7 @@
   button:not(:disabled):hover {
     border-color: #668fe0;
     background-color: #d4e0f8;
+    font-weight: bold;
     cursor: pointer;
   }
 

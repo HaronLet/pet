@@ -2,43 +2,59 @@
   "default": true,
   "tabs": [
     {
-      "name": "Главная",
-      "group": [
+      "title": "Главная",
+      "buttonGroups": [
         {
-          "name": "Создать",
-          "buttons": ["0", "1"]
+          "title": "Создать",
+          "buttons": [0, 1]
         },
         {
-          "name": "Редактирование",
-          "buttons": ["2", "3"]
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
+        },
+        {
+          "title": "Создать",
+          "buttons": [0, 1]
+        },
+        {
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
+        },
+        {
+          "title": "Создать",
+          "buttons": [0, 1]
+        },
+        {
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
         }
       ]
     },
     {
-      "name": "База",
-      "group": [
+      "title": "База",
+      "buttonGroups": [
         {
-          "name": "Поиск",
-          "buttons": ["4", "5"]
+          "title": "Редактирование",
+          "buttons": [5, 6, 7]
         },
         {
-          "name": "База",
-          "buttons": ["6", "7"]
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
         }
       ]
     },
     {
-      "name": "Документ",
-      "group": [
+      "title": "Документ",
+      "buttonGroups": [
         {
-          "name": "Вставка",
-          "buttons": ["4", "5"]
+          "title": "Создать",
+          "buttons": [0, 1]
         },
         {
-          "name": "Позиция",
-          "buttons": ["6", "7"]
+          "title": "Редактирование",
+          "buttons": [5, 6, 7]
         }
       ]
-    }
+    }    
   ]
 }

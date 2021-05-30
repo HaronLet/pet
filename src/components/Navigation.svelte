@@ -1,9 +1,23 @@
 <script>
-  const tabs = [0, 1, 2]
-  let isActive = 0;
+  import Button from './Button.svelte';
+  import TabList from './menuItems/TabList.svelte';
+  import TabTitleList from './menuItems/TabTitleList.svelte';
+
+  const tabs = [
+    {
+      title: "Главная"
+    },
+    {
+      title: "База"
+    },
+    {
+      title: "Документ"
+    }
+  ]
+  let activeTabId = 0;
 </script>
 
-<div class="wrapper">
+<!-- <div class="wrapper">
   <ul class="tab__list">
     {#each tabs as tab, i}
       <li 
@@ -21,16 +35,38 @@
       >Каталог {tab}</li>
     {/each}
   </ul>
+</div> -->
+
+<div class="explorer">
+  <TabTitleList
+    {tabs}
+    {activeTabId}
+    let:title
+    let:tabId
+  >
+    <Button
+      {title}
+      type={tabId}
+      on:buttonClick={(event) => activeTabId = event.detail.text}/>
+  </TabTitleList>
+
+  <TabList
+    {tabs}
+    {activeTabId}
+    let:groups
+  >
+  Каталог
+  </TabList>
 </div>
 
 <style>
-  .wrapper {
+  .explorer {
     display: flex;
     height: 100%;
     width: 100%;   
   }
 
-  .tab__list {
+/*   .tab__list {
     height: 100%;
     background: #ccc;
   }
@@ -53,14 +89,14 @@
     height: 100%;
     padding: 5px;
     background: #efefef;
-  }
+  } */
 
 /*-------------------- active --------------------*/
-  .active {
+/*   .active {
     background: #56e462;
   }
 
   .inactive {
     display: none;
-  }
+  } */
 </style>

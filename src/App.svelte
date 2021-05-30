@@ -21,7 +21,7 @@
   
   <div class="content">
     <aside class="aside">
-      <Navigation/>
+      <!-- <Navigation/> -->
     </aside>
 
     <main class="main">
@@ -120,7 +120,7 @@
   }
 
   .header {
-    height: 200px;
+    height: 400px;
   }
 
   .content {
@@ -147,11 +147,11 @@
     background: rgb(196, 170, 255);
   }
 
-  table, td, th {
+/*   table, td, th {
     border-collapse: collapse;
     border: 1px solid #000;
-/*    color: red; */
-  }
+   color: red;
+  } */
 
   ul > li {
     padding-left: 20px;

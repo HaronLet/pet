@@ -1,43 +1,42 @@
 [
   {
-    "id": "0",
-    "name": "Создать папку",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "createCatalog",
+    "title": "Создать папку",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "1",
-    "name": "Локальная смета",
-    "img": "https://img.icons8.com/metro/344/add-folder.png",
-    "disabled": "true"
+    "type": "createEstimate",
+    "title": "Локальная смета",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "2",
-    "name": "Проектная смета",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "paste",
+    "title": "Вставить",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "3",
-    "name": "Сводный сметный расчёт",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "copy",
+    "title": "Копировать",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "4",
-    "name": "Вставить",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "cut",
+    "title": "Вырезать",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "5",
-    "name": "Удалить",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "undo",
+    "title": "Отменить",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "6",
-    "name": "Копировать",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "return",
+    "title": "Вернуть",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   },
   {
-    "id": "7",
-    "name": "Вырезать",
-    "img": "https://img.icons8.com/metro/344/add-folder.png"
+    "type": "delete",
+    "title": "Удалить",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
   }  
 ]
