@@ -1,0 +1,42 @@
+[
+  {
+    "type": "createCatalog",
+    "title": "Создать папку",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "createEstimate",
+    "title": "Локальная смета",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "paste",
+    "title": "Вставить",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "copy",
+    "title": "Копировать",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "cut",
+    "title": "Вырезать",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "undo",
+    "title": "Отменить",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "return",
+    "title": "Вернуть",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  },
+  {
+    "type": "delete",
+    "title": "Удалить",
+    "iconUrl": "https://img.icons8.com/metro/344/add-folder.png"
+  }  
+]

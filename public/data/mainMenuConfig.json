@@ -1,0 +1,60 @@
+{  
+  "default": true,
+  "tabs": [
+    {
+      "title": "Главная",
+      "buttonGroups": [
+        {
+          "title": "Создать",
+          "buttons": [0, 1]
+        },
+        {
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
+        },
+        {
+          "title": "Создать",
+          "buttons": [0, 1]
+        },
+        {
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
+        },
+        {
+          "title": "Создать",
+          "buttons": [0, 1]
+        },
+        {
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
+        }
+      ]
+    },
+    {
+      "title": "База",
+      "buttonGroups": [
+        {
+          "title": "Редактирование",
+          "buttons": [5, 6, 7]
+        },
+        {
+          "title": "Буфер обмена",
+          "buttons": [2, 3, 4]
+        }
+      ]
+    },
+    {
+      "title": "Документ",
+      "buttonGroups": [
+        {
+          "title": "Создать",
+          "buttons": [0, 1]
+        },
+        {
+          "title": "Редактирование",
+          "buttons": [5, 6, 7]
+        }
+      ]
+    }    
+  ]
+}

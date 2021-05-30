@@ -1,0 +1,49 @@
+<script>
+11
+$('table input').keydown(function(e) {
+12
+    var td;
+13
+    switch (e.keyCode) {
+14
+      case 39: // right
+15
+        td = $(this).parent('td').next();
+16
+        break;
+17
+       
+18
+      case 37: // left
+19
+        td = $(this).parent('td').prev();
+20
+        break;
+21
+         
+22
+      case 40: // down
+23
+        var i = $(this).parent().index() + 1;
+24
+        td = $(this).closest('tr').next().find('td:nth-child(' + i + ')');
+25
+        break;
+26
+         
+27
+      case 38: // up
+28
+        var i = $(this).parent().index() + 1;
+29
+        td = $(this).closest('tr').prev().find('td:nth-child(' + i + ')');
+30
+        break;
+31
+    }
+32
+    td.find('input').focus();
+33
+  });
+34
+</script>
